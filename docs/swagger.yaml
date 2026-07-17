@@ -1,0 +1,471 @@
+openapi: 3.0.0
+info:
+  title: Zakers Real Estate API
+  version: 1.0.0
+  description: API documentation for the Zakers Real Estate platform backend, including neighbourhoods, developments, waterfront properties, articles, and contacts.
+servers:
+  - url: http://localhost:5000/api/v1
+    description: Local development server
+
+paths:
+  /users:
+    get:
+      summary: Get all users
+      tags:
+        - Users
+      responses:
+        '200':
+          description: Successful response
+
+  /neighbourhoods:
+    post:
+      summary: Create a neighbourhood
+      tags:
+        - Neighbourhoods
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NeighbourhoodInput'
+      responses:
+        '201':
+          description: Created
+    get:
+      summary: Get all neighbourhoods
+      tags:
+        - Neighbourhoods
+      parameters:
+        - in: query
+          name: name
+          schema:
+            type: string
+        - in: query
+          name: city
+          schema:
+            type: string
+        - in: query
+          name: isFeatured
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successful response
+
+  /neighbourhoods/{id}:
+    get:
+      summary: Get a neighbourhood by ID
+      tags:
+        - Neighbourhoods
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      summary: Update a neighbourhood
+      tags:
+        - Neighbourhoods
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NeighbourhoodInput'
+      responses:
+        '200':
+          description: Updated
+    delete:
+      summary: Delete a neighbourhood
+      tags:
+        - Neighbourhoods
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+
+  /developments:
+    post:
+      summary: Create a development
+      tags:
+        - Developments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DevelopmentInput'
+      responses:
+        '201':
+          description: Created
+    get:
+      summary: Get all developments
+      tags:
+        - Developments
+      parameters:
+        - in: query
+          name: developmentName
+          schema:
+            type: string
+        - in: query
+          name: city
+          schema:
+            type: string
+        - in: query
+          name: constructionStage
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+
+  /developments/{id}:
+    get:
+      summary: Get a development by ID
+      tags:
+        - Developments
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      summary: Update a development
+      tags:
+        - Developments
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DevelopmentInput'
+      responses:
+        '200':
+          description: Updated
+    delete:
+      summary: Delete a development
+      tags:
+        - Developments
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+
+  /waterfronts:
+    post:
+      summary: Create a waterfront property
+      tags:
+        - Waterfronts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WaterfrontInput'
+      responses:
+        '201':
+          description: Created
+    get:
+      summary: Get all waterfront properties
+      tags:
+        - Waterfronts
+      parameters:
+        - in: query
+          name: propertyName
+          schema:
+            type: string
+        - in: query
+          name: city
+          schema:
+            type: string
+        - in: query
+          name: waterfrontCategory
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+
+  /waterfronts/{id}:
+    get:
+      summary: Get a waterfront property by ID
+      tags:
+        - Waterfronts
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      summary: Update a waterfront property
+      tags:
+        - Waterfronts
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WaterfrontInput'
+      responses:
+        '200':
+          description: Updated
+    delete:
+      summary: Delete a waterfront property
+      tags:
+        - Waterfronts
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+
+  /articles:
+    post:
+      summary: Create an article
+      tags:
+        - Articles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticleInput'
+      responses:
+        '201':
+          description: Created
+    get:
+      summary: Get all articles
+      tags:
+        - Articles
+      parameters:
+        - in: query
+          name: title
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+
+  /articles/{id}:
+    get:
+      summary: Get an article by ID
+      tags:
+        - Articles
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      summary: Update an article
+      tags:
+        - Articles
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArticleInput'
+      responses:
+        '200':
+          description: Updated
+    delete:
+      summary: Delete an article
+      tags:
+        - Articles
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+
+  /contacts:
+    post:
+      summary: Create a contact request
+      tags:
+        - Contacts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactInput'
+      responses:
+        '201':
+          description: Created
+    get:
+      summary: Get all contact requests
+      tags:
+        - Contacts
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+
+  /contacts/{id}:
+    get:
+      summary: Get a contact request by ID
+      tags:
+        - Contacts
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      summary: Update a contact request (e.g., mark as completed)
+      tags:
+        - Contacts
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactInput'
+      responses:
+        '200':
+          description: Updated
+    delete:
+      summary: Delete a contact request
+      tags:
+        - Contacts
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+
+  /analytics:
+    get:
+      summary: Get overarching system analytics
+      tags:
+        - Analytics
+      responses:
+        '200':
+          description: Successful response
+
+components:
+  schemas:
+    NeighbourhoodInput:
+      type: object
+      properties:
+        name: { type: string }
+        slug: { type: string }
+        shortDescription: { type: string }
+        fullDescription: { type: string }
+        heroImage: { type: string }
+        isFeatured: { type: boolean }
+    DevelopmentInput:
+      type: object
+      properties:
+        developmentName: { type: string }
+        propertySlug: { type: string }
+        selectedNeighbourhood: { type: string }
+        address: { type: string }
+        city: { type: string }
+        startingPrice: { type: number }
+        constructionStage: { type: string }
+    WaterfrontInput:
+      type: object
+      properties:
+        propertyName: { type: string }
+        propertySlug: { type: string }
+        neighbourhood: { type: string }
+        waterfrontCategory: { type: string }
+        startingPrice: { type: number }
+        city: { type: string }
+    ArticleInput:
+      type: object
+      properties:
+        title: { type: string }
+        authorName: { type: string }
+        publishDate: { type: string, format: date-time }
+        articleContent: { type: string }
+        featureImage: { type: string }
+    ContactInput:
+      type: object
+      properties:
+        name: { type: string }
+        email: { type: string }
+        phoneNumber: { type: string }
+        budget: { type: string }
+        primaryGoal: { type: string }
+        timeline: { type: string }
+        message: { type: string }
+        status: { type: string, enum: [pending, completed] }

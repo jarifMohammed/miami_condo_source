@@ -1,0 +1,180 @@
+{
+  "info": {
+    "name": "Zakers Real Estate API",
+    "description": "Postman Collection for all Zakers Real Estate modules",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Neighbourhoods",
+      "item": [
+        {
+          "name": "Get All Neighbourhoods",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/neighbourhoods",
+              "host": ["{{baseUrl}}"],
+              "path": ["neighbourhoods"]
+            }
+          }
+        },
+        {
+          "name": "Create Neighbourhood",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/neighbourhoods",
+              "host": ["{{baseUrl}}"],
+              "path": ["neighbourhoods"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Miami Beach\",\n  \"slug\": \"miami-beach\",\n  \"shortDescription\": \"Beautiful beach\",\n  \"fullDescription\": \"Very beautiful beach.\",\n  \"heroImage\": \"url\",\n  \"themeImages\": [{\"url\": \"img1\", \"index\": 1}],\n  \"amenities\": [\"swimming pool\", \"spa\"],\n  \"location\": {\n    \"city\": \"Miami\",\n    \"state\": \"FL\",\n    \"country\": \"USA\",\n    \"latitude\": 25.7906,\n    \"longitude\": -80.1300,\n    \"mapEmbedUrl\": \"url\"\n  },\n  \"isFeatured\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Developments",
+      "item": [
+        {
+          "name": "Get All Developments",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/developments",
+              "host": ["{{baseUrl}}"],
+              "path": ["developments"]
+            }
+          }
+        },
+        {
+          "name": "Create Development",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/developments",
+              "host": ["{{baseUrl}}"],
+              "path": ["developments"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"developmentName\": \"The Grand Condo\",\n  \"propertySlug\": \"the-grand-condo\",\n  \"selectedNeighbourhood\": \"<id>\",\n  \"address\": \"123 Ocean Dr\",\n  \"city\": \"Miami\",\n  \"startingPrice\": 1000000,\n  \"constructionStage\": \"pre-construction\",\n  \"deliveryYear\": \"2028\",\n  \"developer\": \"Acme Corp\",\n  \"pricePerSqft\": 1200,\n  \"bedrooms\": \"1-4\",\n  \"stories\": 50,\n  \"totalResidencies\": 300,\n  \"sizeRange\": \"800 - 4000 sqft\",\n  \"heroImage\": \"url\",\n  \"galleryImages\": [{\"url\": \"url1\", \"index\": 1}],\n  \"projectOverview\": \"An iconic tower.\",\n  \"shortIntroduction\": \"Luxury living.\",\n  \"amenities\": [\"spa\"],\n  \"category\": [\"luxury\"],\n  \"features\": [\"smart home\"],\n  \"depositStructure\": \"20% at signing\",\n  \"salesProgress\": \"30% sold\",\n  \"rentalPolicy\": \"30 day minimum\",\n  \"residences\": [\n    {\n      \"residenceType\": \"Penthouse\",\n      \"bedrooms\": \"4\",\n      \"bathrooms\": \"4.5\",\n      \"interiorSize\": \"4000 sqft\",\n      \"terraceSize\": \"1000 sqft\",\n      \"startingPrice\": 5000000,\n      \"status\": \"available\",\n      \"floorPlan\": \"url\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Waterfronts",
+      "item": [
+        {
+          "name": "Get All Waterfronts",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/waterfronts",
+              "host": ["{{baseUrl}}"],
+              "path": ["waterfronts"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Articles",
+      "item": [
+        {
+          "name": "Get All Articles",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/articles",
+              "host": ["{{baseUrl}}"],
+              "path": ["articles"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Contacts",
+      "item": [
+        {
+          "name": "Create Contact Request",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/contacts",
+              "host": ["{{baseUrl}}"],
+              "path": ["contacts"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"phoneNumber\": \"555-0199\",\n  \"budget\": \"$1M - $2M\",\n  \"primaryGoal\": \"Investment\",\n  \"timeline\": \"3-6 months\",\n  \"message\": \"I am interested in pre-construction projects.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Mark Contact Completed",
+          "request": {
+            "method": "PATCH",
+            "url": {
+              "raw": "{{baseUrl}}/contacts/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["contacts", ":id"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"completed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "Get Analytics",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/analytics",
+              "host": ["{{baseUrl}}"],
+              "path": ["analytics"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api/v1"
+    }
+  ]
+}
