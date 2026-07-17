@@ -1,7 +1,7 @@
 {
   "info": {
-    "name": "Zakers Real Estate API",
-    "description": "Postman Collection for all Zakers Real Estate modules",
+    "name": "The Miami Condo Source API",
+    "description": "Postman Collection for all The Miami Condo Source modules. Contains full parameter sets.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -13,9 +13,19 @@
           "request": {
             "method": "GET",
             "url": {
-              "raw": "{{baseUrl}}/neighbourhoods",
+              "raw": "{{baseUrl}}/neighbourhoods?name=brickell&city=miami&state=fl&country=usa&latitude=25.7&longitude=-80.1&amenities=spa,pool&isFeatured=true",
               "host": ["{{baseUrl}}"],
-              "path": ["neighbourhoods"]
+              "path": ["neighbourhoods"],
+              "query": [
+                { "key": "name", "value": "brickell", "description": "Filter by name" },
+                { "key": "city", "value": "miami" },
+                { "key": "state", "value": "fl" },
+                { "key": "country", "value": "usa" },
+                { "key": "latitude", "value": "25.7" },
+                { "key": "longitude", "value": "-80.1" },
+                { "key": "amenities", "value": "spa,pool" },
+                { "key": "isFeatured", "value": "true" }
+              ]
             }
           }
         },
@@ -49,9 +59,18 @@
           "request": {
             "method": "GET",
             "url": {
-              "raw": "{{baseUrl}}/developments",
+              "raw": "{{baseUrl}}/developments?developmentName=grand&city=miami&selectedNeighbourhood=id&constructionStage=pre-construction&category=luxury,waterfront&amenities=spa&features=smart home",
               "host": ["{{baseUrl}}"],
-              "path": ["developments"]
+              "path": ["developments"],
+              "query": [
+                { "key": "developmentName", "value": "grand" },
+                { "key": "city", "value": "miami" },
+                { "key": "selectedNeighbourhood", "value": "id" },
+                { "key": "constructionStage", "value": "pre-construction" },
+                { "key": "category", "value": "luxury,waterfront" },
+                { "key": "amenities", "value": "spa" },
+                { "key": "features", "value": "smart home" }
+              ]
             }
           }
         },
@@ -66,7 +85,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"developmentName\": \"The Grand Condo\",\n  \"propertySlug\": \"the-grand-condo\",\n  \"selectedNeighbourhood\": \"<id>\",\n  \"address\": \"123 Ocean Dr\",\n  \"city\": \"Miami\",\n  \"startingPrice\": 1000000,\n  \"constructionStage\": \"pre-construction\",\n  \"deliveryYear\": \"2028\",\n  \"developer\": \"Acme Corp\",\n  \"pricePerSqft\": 1200,\n  \"bedrooms\": \"1-4\",\n  \"stories\": 50,\n  \"totalResidencies\": 300,\n  \"sizeRange\": \"800 - 4000 sqft\",\n  \"heroImage\": \"url\",\n  \"galleryImages\": [{\"url\": \"url1\", \"index\": 1}],\n  \"projectOverview\": \"An iconic tower.\",\n  \"shortIntroduction\": \"Luxury living.\",\n  \"amenities\": [\"spa\"],\n  \"category\": [\"luxury\"],\n  \"features\": [\"smart home\"],\n  \"depositStructure\": \"20% at signing\",\n  \"salesProgress\": \"30% sold\",\n  \"rentalPolicy\": \"30 day minimum\",\n  \"residences\": [\n    {\n      \"residenceType\": \"Penthouse\",\n      \"bedrooms\": \"4\",\n      \"bathrooms\": \"4.5\",\n      \"interiorSize\": \"4000 sqft\",\n      \"terraceSize\": \"1000 sqft\",\n      \"startingPrice\": 5000000,\n      \"status\": \"available\",\n      \"floorPlan\": \"url\"\n    }\n  ]\n}",
+              "raw": "{\n  \"developmentName\": \"The Grand Condo\",\n  \"propertySlug\": \"the-grand-condo\",\n  \"selectedNeighbourhood\": \"<id>\",\n  \"address\": \"123 Ocean Dr\",\n  \"city\": \"Miami\",\n  \"startingPrice\": 1000000,\n  \"constructionStage\": \"pre-construction\",\n  \"deliveryYear\": \"2028\",\n  \"developer\": \"Acme Corp\",\n  \"pricePerSqft\": 1200,\n  \"bedrooms\": \"1-4\",\n  \"stories\": 50,\n  \"totalResidencies\": 300,\n  \"sizeRange\": \"800 - 4000 sqft\",\n  \"heroImage\": \"url\",\n  \"galleryImages\": [{\"url\": \"url1\", \"index\": 1}],\n  \"projectOverview\": \"An iconic tower.\",\n  \"shortIntroduction\": \"Luxury living.\",\n  \"amenities\": [\"spa\"],\n  \"category\": [\"luxury\"],\n  \"features\": [\"smart home\"],\n  \"depositStructure\": \"20% at signing\",\n  \"salesProgress\": \"30% sold\",\n  \"rentalPolicy\": \"30 day minimum\",\n  \"currentStage\": \"planning\",\n  \"expectedDelivery\": \"Jan 2028\",\n  \"residences\": [\n    {\n      \"residenceType\": \"Penthouse\",\n      \"bedrooms\": \"4\",\n      \"bathrooms\": \"4.5\",\n      \"interiorSize\": \"4000 sqft\",\n      \"terraceSize\": \"1000 sqft\",\n      \"startingPrice\": 5000000,\n      \"status\": \"available\",\n      \"floorPlan\": \"url\"\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -85,9 +104,36 @@
           "request": {
             "method": "GET",
             "url": {
+              "raw": "{{baseUrl}}/waterfronts?propertyName=villa&city=miami&zipCode=33139&waterfrontCategory=oceanfront&neighbourhood=id",
+              "host": ["{{baseUrl}}"],
+              "path": ["waterfronts"],
+              "query": [
+                { "key": "propertyName", "value": "villa" },
+                { "key": "city", "value": "miami" },
+                { "key": "zipCode", "value": "33139" },
+                { "key": "waterfrontCategory", "value": "oceanfront" },
+                { "key": "neighbourhood", "value": "id" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Waterfront",
+          "request": {
+            "method": "POST",
+            "url": {
               "raw": "{{baseUrl}}/waterfronts",
               "host": ["{{baseUrl}}"],
               "path": ["waterfronts"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"propertyName\": \"Ocean Villa\",\n  \"propertySlug\": \"ocean-villa\",\n  \"neighbourhood\": \"<id>\",\n  \"waterfrontCategory\": \"oceanfront\",\n  \"startingPrice\": 2000000,\n  \"propertyAddress\": \"1 Ocean Way\",\n  \"city\": \"Miami\",\n  \"zipCode\": \"33139\",\n  \"bedrooms\": \"5\",\n  \"bathrooms\": \"6\",\n  \"interiorSqft\": 5000,\n  \"latitude\": 25.7,\n  \"longitude\": -80.1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             }
           }
         }
@@ -101,9 +147,32 @@
           "request": {
             "method": "GET",
             "url": {
+              "raw": "{{baseUrl}}/articles?title=condo",
+              "host": ["{{baseUrl}}"],
+              "path": ["articles"],
+              "query": [
+                { "key": "title", "value": "condo" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Article",
+          "request": {
+            "method": "POST",
+            "url": {
               "raw": "{{baseUrl}}/articles",
               "host": ["{{baseUrl}}"],
               "path": ["articles"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Top 10 Condos in Miami\",\n  \"authorName\": \"Jane Doe\",\n  \"publishDate\": \"2023-10-01T12:00:00Z\",\n  \"articleContent\": \"Here are the top condos...\",\n  \"featureImage\": \"url\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
             }
           }
         }
@@ -112,6 +181,20 @@
     {
       "name": "Contacts",
       "item": [
+        {
+          "name": "Get All Contacts",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/contacts?status=pending",
+              "host": ["{{baseUrl}}"],
+              "path": ["contacts"],
+              "query": [
+                { "key": "status", "value": "pending" }
+              ]
+            }
+          }
+        },
         {
           "name": "Create Contact Request",
           "request": {

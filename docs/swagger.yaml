@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  title: Zakers Real Estate API
+  title: The Miami Condo Source API
   version: 1.0.0
-  description: API documentation for the Zakers Real Estate platform backend, including neighbourhoods, developments, waterfront properties, articles, and contacts.
+  description: API documentation for The Miami Condo Source platform backend, including exhaustive filtering options for neighbourhoods, developments, waterfront properties, articles, and contacts.
 servers:
   - url: http://localhost:5000/api/v1
     description: Local development server
@@ -38,16 +38,36 @@ paths:
       parameters:
         - in: query
           name: name
-          schema:
-            type: string
+          schema: { type: string }
+          description: Filter by neighbourhood name (Regex case-insensitive)
         - in: query
           name: city
-          schema:
-            type: string
+          schema: { type: string }
+          description: Filter by city (Regex case-insensitive)
+        - in: query
+          name: state
+          schema: { type: string }
+          description: Filter by state
+        - in: query
+          name: country
+          schema: { type: string }
+          description: Filter by country
+        - in: query
+          name: latitude
+          schema: { type: number }
+          description: Filter by exact latitude
+        - in: query
+          name: longitude
+          schema: { type: number }
+          description: Filter by exact longitude
+        - in: query
+          name: amenities
+          schema: { type: string }
+          description: Comma-separated list of amenities
         - in: query
           name: isFeatured
-          schema:
-            type: boolean
+          schema: { type: boolean }
+          description: Toggle for featured neighbourhoods
       responses:
         '200':
           description: Successful response
@@ -61,8 +81,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       responses:
         '200':
           description: Successful response
@@ -74,8 +93,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       requestBody:
         required: true
         content:
@@ -93,8 +111,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       responses:
         '200':
           description: Deleted
@@ -120,16 +137,32 @@ paths:
       parameters:
         - in: query
           name: developmentName
-          schema:
-            type: string
+          schema: { type: string }
+          description: Filter by development name (Regex case-insensitive)
         - in: query
           name: city
-          schema:
-            type: string
+          schema: { type: string }
+          description: Filter by city
+        - in: query
+          name: selectedNeighbourhood
+          schema: { type: string }
+          description: Filter by exact Neighbourhood ID
         - in: query
           name: constructionStage
-          schema:
-            type: string
+          schema: { type: string }
+          description: Filter by construction stage enum
+        - in: query
+          name: category
+          schema: { type: string }
+          description: Comma-separated list of categories (e.g., luxury,waterfront)
+        - in: query
+          name: amenities
+          schema: { type: string }
+          description: Comma-separated list of amenities
+        - in: query
+          name: features
+          schema: { type: string }
+          description: Comma-separated list of features
       responses:
         '200':
           description: Successful response
@@ -143,8 +176,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       responses:
         '200':
           description: Successful response
@@ -156,8 +188,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       requestBody:
         required: true
         content:
@@ -175,8 +206,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       responses:
         '200':
           description: Deleted
@@ -202,16 +232,24 @@ paths:
       parameters:
         - in: query
           name: propertyName
-          schema:
-            type: string
+          schema: { type: string }
+          description: Filter by property name (Regex case-insensitive)
         - in: query
           name: city
-          schema:
-            type: string
+          schema: { type: string }
+          description: Filter by city
+        - in: query
+          name: zipCode
+          schema: { type: string }
+          description: Filter by zip code
         - in: query
           name: waterfrontCategory
-          schema:
-            type: string
+          schema: { type: string }
+          description: Comma-separated categories
+        - in: query
+          name: neighbourhood
+          schema: { type: string }
+          description: Filter by Neighbourhood ID
       responses:
         '200':
           description: Successful response
@@ -225,8 +263,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       responses:
         '200':
           description: Successful response
@@ -238,8 +275,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       requestBody:
         required: true
         content:
@@ -257,8 +293,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       responses:
         '200':
           description: Deleted
@@ -284,8 +319,8 @@ paths:
       parameters:
         - in: query
           name: title
-          schema:
-            type: string
+          schema: { type: string }
+          description: Search by article title
       responses:
         '200':
           description: Successful response
@@ -299,8 +334,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       responses:
         '200':
           description: Successful response
@@ -312,8 +346,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       requestBody:
         required: true
         content:
@@ -331,8 +364,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       responses:
         '200':
           description: Deleted
@@ -358,8 +390,8 @@ paths:
       parameters:
         - in: query
           name: status
-          schema:
-            type: string
+          schema: { type: string }
+          description: Filter by status (pending or completed)
       responses:
         '200':
           description: Successful response
@@ -373,8 +405,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       responses:
         '200':
           description: Successful response
@@ -386,8 +417,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       requestBody:
         required: true
         content:
@@ -405,8 +435,7 @@ paths:
         - in: path
           name: id
           required: true
-          schema:
-            type: string
+          schema: { type: string }
       responses:
         '200':
           description: Deleted
@@ -430,7 +459,27 @@ components:
         shortDescription: { type: string }
         fullDescription: { type: string }
         heroImage: { type: string }
+        themeImages:
+          type: array
+          items:
+            type: object
+            properties:
+              url: { type: string }
+              index: { type: number }
+        amenities:
+          type: array
+          items: { type: string }
+        location:
+          type: object
+          properties:
+            city: { type: string }
+            state: { type: string }
+            country: { type: string }
+            latitude: { type: number }
+            longitude: { type: number }
+            mapEmbedUrl: { type: string }
         isFeatured: { type: boolean }
+    
     DevelopmentInput:
       type: object
       properties:
@@ -441,6 +490,51 @@ components:
         city: { type: string }
         startingPrice: { type: number }
         constructionStage: { type: string }
+        deliveryYear: { type: string }
+        developer: { type: string }
+        pricePerSqft: { type: number }
+        bedrooms: { type: string }
+        stories: { type: number }
+        totalResidencies: { type: number }
+        sizeRange: { type: string }
+        heroImage: { type: string }
+        galleryImages:
+          type: array
+          items:
+            type: object
+            properties:
+              url: { type: string }
+              index: { type: number }
+        projectOverview: { type: string }
+        shortIntroduction: { type: string }
+        amenities:
+          type: array
+          items: { type: string }
+        category:
+          type: array
+          items: { type: string }
+        features:
+          type: array
+          items: { type: string }
+        depositStructure: { type: string }
+        salesProgress: { type: string }
+        rentalPolicy: { type: string }
+        currentStage: { type: string, enum: [planning, foundation, "structure exterior", "interior finishing", completed] }
+        expectedDelivery: { type: string }
+        residences:
+          type: array
+          items:
+            type: object
+            properties:
+              residenceType: { type: string }
+              bedrooms: { type: string }
+              bathrooms: { type: string }
+              interiorSize: { type: string }
+              terraceSize: { type: string }
+              startingPrice: { type: number }
+              status: { type: string }
+              floorPlan: { type: string }
+    
     WaterfrontInput:
       type: object
       properties:
@@ -449,7 +543,15 @@ components:
         neighbourhood: { type: string }
         waterfrontCategory: { type: string }
         startingPrice: { type: number }
+        propertyAddress: { type: string }
         city: { type: string }
+        zipCode: { type: string }
+        bedrooms: { type: string }
+        bathrooms: { type: string }
+        interiorSqft: { type: number }
+        latitude: { type: number }
+        longitude: { type: number }
+    
     ArticleInput:
       type: object
       properties:
@@ -458,6 +560,7 @@ components:
         publishDate: { type: string, format: date-time }
         articleContent: { type: string }
         featureImage: { type: string }
+    
     ContactInput:
       type: object
       properties:
