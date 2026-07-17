@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EAmenities = void 0;
+var EAmenities;
+(function (EAmenities) {
+    EAmenities["SWIMMING_POOL"] = "swimming pool";
+    EAmenities["SPA"] = "spa";
+    EAmenities["FITNESS_CENTER"] = "fitness center";
+    EAmenities["YOGA_STUDIO"] = "yoga studio";
+    EAmenities["BUSINESS_CENTER"] = "business center";
+    EAmenities["PRIVATE_LOUNGE"] = "private lounge";
+    EAmenities["RESTAURANT"] = "restaurant";
+    EAmenities["CONCIERGE"] = "concierge";
+    EAmenities["PET_FRIENDLY"] = "pet friendly";
+    EAmenities["PARKING"] = "parking";
+    EAmenities["PRIVATE_MARINA"] = "private marina";
+    EAmenities["CHILDRENS_AREA"] = "childrens area";
+    EAmenities["OUTDOOR_KITCHEN"] = "outdoor kitchen";
+    EAmenities["WINE_LOUNGE"] = "wine lounge";
+    EAmenities["GAME_ROOM"] = "game room";
+})(EAmenities || (exports.EAmenities = EAmenities = {}));
